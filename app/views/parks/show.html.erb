@@ -1,49 +1,54 @@
-<h1><strong><%= @place_info['name'] %></strong></h1>
-<div>
+<h2><%= @place_info['name'] %></h2>
+
+<div class="main-list">
   <% unless @place_info['rating'] == nil %>
-    <p>Overall Rating: <%= @place_info['rating'] %></p>
+    <h4>Overall Rating: <%= @place_info['rating'] %></h4>
   <% end %>
-</div>
+  <p><%= @place_info['formatted_address'] %></p>
 
-<div class="address">
-  <%= @place_info['formatted_address'] %>
-</div>
+  <div>
+    <iframe
+      width="600"
+      height="450"
+      frameborder="0" style="border:0"
+      src="https://www.google.com/maps/embed/v1/place?key=<%= @env_key %>
+        &q=<%= @place_info['name'] %>, <%= @city %>, <%= @region %>
+        &attribution_source=Google+Maps+Embed+API
+        &attribution_ios_deep_link_id=comgooglemaps://?daddr=<%= @city %>, <%= @region %>">
+    </iframe>
+  </div>
 
-<div>
-  <iframe
-    width="600"
-    height="450"
-    frameborder="0" style="border:0"
-    src="https://www.google.com/maps/embed/v1/place?key=#{ENV['GOOGLE_KEY']}
-      &q=<%= @place_info['name'] %>, <%= @city %>, <%= @region %>
-      &attribution_source=Google+Maps+Embed+API
-      &attribution_ios_deep_link_id=comgooglemaps://?daddr=<%= @city %>, <%= @region %>">
-  </iframe>
-</div>
-
-<div class="hours">
-  <% unless @place_info["opening_hours"] == nil %>
-    <% @place_info["opening_hours"]["weekday_text"].each do |day| %>
-      <li><%= day %></li>
-    <% end %>
-  <% end %>
-</div>
-
-<div class="reviews">
-  <% unless @reviews == nil %>
-    <table>
-      <tr>
-        <th>Rating</th>
-        <th>Review</th>
-      </tr>
-      <% @reviews.each do |review| %>
-        <tr>
-          <td>Rating: <%= review["rating"] %></td>
-          <% if !review["text"].empty? %>
-            <td>Review: <%= review["text"] %></td>
-          <% end %>
-        </tr>
+  <div class="hours">
+    <% unless @place_info["opening_hours"] == nil %>
+      <ul class='no-bullets'>
+      <% @place_info["opening_hours"]["weekday_text"].each do |day| %>
+        <li><%= day %></li>
       <% end %>
-    </table>
-  <% end %>
+      </ul>
+    <% end %>
+  </div>
+
+  <div class="reviews">
+    <% unless @reviews == nil %>
+      <table>
+        <tr>
+          <th>Rating</th>
+          <th>Review</th>
+        </tr>
+        <% @reviews.each do |review| %>
+          <tr>
+            <td class='rating-font center-text'><%= review["rating"] %></td>
+            <% if !review["text"].empty? %>
+              <td><%= review["text"] %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </table>
+    <% end %>
+  </div>
+  <div class="footer">
+    Created by <a href="https://github.com/bsterno">Brian Stern</a>,
+    <a href="https://github.com/APKirstein">Drew Kirstein</a>, &&
+    <a href="https://github.com/jraenorris">Jesse Norris</a>
+  </div>
 </div>
