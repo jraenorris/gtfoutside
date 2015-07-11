@@ -1,4 +1,5 @@
 class ParksController < ApplicationController
+
   def index
     # location = HTTParty.get('http://api.divesites.com')
     # @city = location["loc"]["city"]
