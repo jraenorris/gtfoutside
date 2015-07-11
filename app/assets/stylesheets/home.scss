@@ -92,6 +92,17 @@ ul.no-bullets, ul.no-bullets li {
 
 }
 
+/* .hide-this {
+  display: none;
+}
+ */
+.white-border {
+  border: 3px solid white;
+  width: 40%;
+  margin: 0 auto;
+  height: 68px;
+}
+
 table tr td {
   color: white;
   font-size: 11pt;
@@ -108,4 +119,8 @@ td {
 
 .rating-font {
   font-size: 14pt;
+}
+
+.explore {
+  font-size: 20pt;
 }
