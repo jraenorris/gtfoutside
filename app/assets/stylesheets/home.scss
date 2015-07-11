@@ -51,6 +51,9 @@ body  {
   display: inline;
 }*/
 
+.padding-twenty {
+  padding: 20px 0px;
+}
 
 .button-group.even-2 li:first-child button, .button-group.even-2 li:first-child .button,
 .button-group.even-2 li:last-child button, .button-group.even-2 li:last-child .button {
@@ -81,6 +84,12 @@ ul.no-bullets, ul.no-bullets li {
 
 .center-text {
   text-align: center;
+}
+
+.small-text {
+  font-size: 6pt;
+  color: #FE8E47;
+
 }
 
 table tr td {

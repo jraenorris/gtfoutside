@@ -6,12 +6,12 @@
   <% end %>
   <p><%= @place_info['formatted_address'] %></p>
 
-  <div>
+  <div class='padding-twenty'>
     <iframe
       width="600"
       height="450"
       frameborder="0" style="border:0"
-      src="https://www.google.com/maps/embed/v1/place?key=<%= @env_key %>
+      src="https://www.google.com/maps/embed/v1/place?key=<%= ENV['GOOGLE_KEY'] %>
         &q=<%= @place_info['name'] %>, <%= @city %>, <%= @region %>
         &attribution_source=Google+Maps+Embed+API
         &attribution_ios_deep_link_id=comgooglemaps://?daddr=<%= @city %>, <%= @region %>">
@@ -47,7 +47,7 @@
     <% end %>
   </div>
   <div class="footer">
-    Created by <a href="https://github.com/bsterno">Brian Stern</a>,
+    <%= link_to "GTFOutside", root_path %> created by <a href="https://github.com/bsterno">Brian Stern</a>,
     <a href="https://github.com/APKirstein">Drew Kirstein</a>, &&
     <a href="https://github.com/jraenorris">Jesse Norris</a>
   </div>

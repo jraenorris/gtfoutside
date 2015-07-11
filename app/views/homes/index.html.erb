@@ -4,13 +4,13 @@
 <div class="row" id="buttons">
   <div class="small-6 large-centered columns">
     <ul class="button-group even-2">
-      <li class="transparent"><%= link_to "Explore", parks_path, onclick: 'geoFindMe()' %></li>
+      <li class="transparent"><%= link_to "Explore", parks_path, class: 'button', onclick: 'geoFindMe()' %></li>
       <div id="out"></div>
     </ul>
   </div>
 </div>
 <div class="footer">
-  Created by <a href="https://github.com/bsterno">Brian Stern</a>,
+  <%= link_to "GTFOutside", root_path %> created by <a href="https://github.com/bsterno">Brian Stern</a>,
   <a href="https://github.com/APKirstein">Drew Kirstein</a>, &&
   <a href="https://github.com/jraenorris">Jesse Norris</a>
 </div>

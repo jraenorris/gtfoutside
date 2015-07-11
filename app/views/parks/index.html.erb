@@ -1,16 +1,21 @@
 <div class="row">
   <div class="small-8 large-centered columns">
     <div class='center-text'>
-      <h3>You're searching in <%= @city %>, <%= @region %></h3>
-      <iframe
-        width="600"
-        height="450"
-        frameborder="0" style="border:0"
-        src="https://www.google.com/maps/embed/v1/place?key=#{ENV['GOOGLE_KEY']}
-          &q=<%= @city %>, <%= @region %>
-          &attribution_source=Google+Maps+Embed+API
-          &attribution_ios_deep_link_id=comgooglemaps://?daddr=<%= @city %>, <%= @region %>">
-      </iframe>
+      <h3>You're searching from <%= @location %></h3>
+      <div class='small-text'>
+        <p>(we're coming for you)</p>
+      </div>
+      <div class='padding-twenty'>
+        <iframe
+          width="600"
+          height="450"
+          frameborder="0" style="border:0"
+          src="https://www.google.com/maps/embed/v1/place?key=<%= ENV['GOOGLE_KEY'] %>
+            &q=<%= @city %>, <%= @region %>
+            &attribution_source=Google+Maps+Embed+API
+            &attribution_ios_deep_link_id=comgooglemaps://?daddr=<%= @city %>, <%= @region %>">
+        </iframe>
+      </div>
     </div>
 
     <div class="main-list">
@@ -26,7 +31,7 @@
   </div>
 </div>
 <div class="footer">
-  Created by <a href="https://github.com/bsterno">Brian Stern</a>,
+  <%= link_to "GTFOutside", root_path %> created by <a href="https://github.com/bsterno">Brian Stern</a>,
   <a href="https://github.com/APKirstein">Drew Kirstein</a>, &&
   <a href="https://github.com/jraenorris">Jesse Norris</a>
 </div>
