@@ -2,11 +2,11 @@
 <div class="row" id="logo"></div>
 
 <div class="row" id="buttons">
-  <div class="small-6 large-centered columns">
-    <ul class="button-group even-2">
-      <li class="transparent"><%= link_to "Explore", parks_path, class: 'button', onclick: 'geoFindMe()' %></li>
+  <div class="small-6 large-centered columns center-text">
+      <div class='white-border'>
+        <%= link_to "Explore", parks_path, class: 'button explore', onclick: 'geoFindMe()' %>
+      </div>
       <div id="out"></div>
-    </ul>
   </div>
 </div>
 <div class="footer">
