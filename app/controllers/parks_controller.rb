@@ -7,6 +7,7 @@ class ParksController < ApplicationController
     latitude = cookies["latitude"]
     longitude = cookies["longitude"]
     response = HTTParty.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{latitude},#{longitude}&radius=10000&types=park&campground=cruise&key=#{ENV["GOOGLE_KEY"]}")
+    @env_key = ENV['GOOGLE_KEY']
 
     @places = response["results"]
     #
