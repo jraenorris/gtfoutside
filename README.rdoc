@@ -1,28 +1,8 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+People, programmers especially, spend too much time inside. We want to help get
+these people outside as much as possible by making it too easy for them to get
+the fuck outside to say no.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Created during Launch Academy by Jesse Norris (github.com/jraenorris), Brian
+Stern (github.com/bsterno), and Drew Kirstein (github.com/apkirstein).
