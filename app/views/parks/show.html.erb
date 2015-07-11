@@ -1,46 +1,49 @@
-<header>
+<h1><strong><%= @place_info['name'] %></strong></h1>
+<div>
+  <% unless @place_info['rating'] == nil %>
+    <p>Overall Rating: <%= @place_info['rating'] %></p>
+  <% end %>
+</div>
 
-  <h1><strong><%= park %></strong></h1>
+<div class="address">
+  <%= @place_info['formatted_address'] %>
+</div>
 
-  <div>
-    <iframe
-      width="600"
-      height="450"
-      frameborder="0" style="border:0"
-      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBRo-mtutP62p-Z5mPGwgZj0fArDw7e_7A
-        &q=<%= park %>, <%= city %>, <%= region %>
-        &attribution_source=Google+Maps+Embed+API
-        &attribution_ios_deep_link_id=comgooglemaps://?daddr=<%= city %>, <%= region %>">
-    </iframe>
-  </div>
+<div>
+  <iframe
+    width="600"
+    height="450"
+    frameborder="0" style="border:0"
+    src="https://www.google.com/maps/embed/v1/place?key=#{ENV['GOOGLE_KEY']}
+      &q=<%= @place_info['name'] %>, <%= @city %>, <%= @region %>
+      &attribution_source=Google+Maps+Embed+API
+      &attribution_ios_deep_link_id=comgooglemaps://?daddr=<%= @city %>, <%= @region %>">
+  </iframe>
+</div>
 
-  <div>
-    <ul>
-      <% unless place_reviews == nil %>
-        <% place_reviews.each do |place| %>
-          <% if place["text"].empty? == false %>
-            <li><%= place["text"] %></li>
+<div class="hours">
+  <% unless @place_info["opening_hours"] == nil %>
+    <% @place_info["opening_hours"]["weekday_text"].each do |day| %>
+      <li><%= day %></li>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="reviews">
+  <% unless @reviews == nil %>
+    <table>
+      <tr>
+        <th>Rating</th>
+        <th>Review</th>
+      </tr>
+      <% @reviews.each do |review| %>
+        <tr>
+          <td>Rating: <%= review["rating"] %></td>
+          <% if !review["text"].empty? %>
+            <td>Review: <%= review["text"] %></td>
           <% end %>
-        <% end %>
+        </tr>
       <% end %>
-    </ul>
-  </div>
-
-  <div>
-    <ul>
-      <% unless place_info["result"]["opening_hours"] == nil %>
-        <% place_info["result"]["opening_hours"]["weekday_text"].each do |day| %>
-          <li><%= day %></li>
-        <% end %>
-      <% end %>
-    </ul>
-  </div>
-
-  <div>
-    <a href="/gtfo">Home</a>
-  </div>
-
-  <div>
-    Created by <a href="https://github.com/bsterno">Brian Stern</a> and <a href="https://github.com/APKirstein">Drew Kirstein</a>
-  </div>
-</header>
+    </table>
+  <% end %>
+</div>
