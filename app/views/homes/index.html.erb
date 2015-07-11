@@ -4,8 +4,8 @@
 <div class="row" id="buttons">
   <div class="small-6 large-centered columns">
     <ul class="button-group even-2">
-      <li class="transparent"><%= link_to "explore", parks_path, class: "button" %></li>
-      <li class="transparent"><%= link_to "search by city", parks_path(@city), class: "button" %></li>
+      <li class="transparent"><%= link_to "Explore", parks_path, onclick: 'geoFindMe()' %></li>
+      <div id="out"></div>
     </ul>
   </div>
-  </div>
+</div>

@@ -1,9 +1,12 @@
 class ParksController < ApplicationController
   def index
-    location = HTTParty.get('http://api.divesites.com')
-    @city = location["loc"]["city"]
-    @region = location["loc"]["region_name"]
-    response = HTTParty.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{location['loc']['lat']},#{location['loc']['lng']}&radius=10000&types=park&campground=cruise&key=#{ENV["GOOGLE_KEY"]}")
+    # location = HTTParty.get('http://api.divesites.com')
+    # @city = location["loc"]["city"]
+    # @region = location["loc"]["region_name"]
+    # binding.pry
+    latitude = cookies["latitude"]
+    longitude = cookies["longitude"]
+    response = HTTParty.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{latitude},#{longitude}&radius=10000&types=park&campground=cruise&key=#{ENV["GOOGLE_KEY"]}")
 
     @places = response["results"]
     #
