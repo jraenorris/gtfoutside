@@ -25,14 +25,16 @@ body  {
   width:100%;
   text-align: center;
 }
-
+/*
 .button-group.even-2 li button {
   align-items: center;
   align-self: center;
   align-content: center;
   text-align: center;
+} */
+.full-container {
+  padding: 20px;
 }
-
 .footer a {
   color: white;
   text-decoration: underline;
@@ -42,12 +44,13 @@ body  {
   color: #FE8E47;
   text-decoration: underline;
 }
-
+/*
 .button-group.even-2 li {
   margin-left: 5px;
   margin-right: 5px;
   display: inline;
-}
+}*/
+
 
 .button-group.even-2 li:first-child button, .button-group.even-2 li:first-child .button,
 .button-group.even-2 li:last-child button, .button-group.even-2 li:last-child .button {
@@ -55,7 +58,45 @@ body  {
   width: 200px;
 }
 
-
 button, .button {
   background-color: RGBA(255, 255, 255, 0) !important;
+}
+
+.button:hover {
+  color: #FE8E47;
+}
+
+ul.no-bullets, ul.no-bullets li {
+  list-style-type: none;
+}
+
+.main-list {
+  background-color: rgba(59,80,60,0.4);
+  padding: 15px;
+}
+
+.reviews {
+  padding: 10px;
+}
+
+.center-text {
+  text-align: center;
+}
+
+table tr td {
+  color: white;
+  font-size: 11pt;
+}
+
+table tr th {
+  color: #FE8E47;
+  font-size: 13pt;
+}
+
+td {
+  padding-top: 20pt;
+}
+
+.rating-font {
+  font-size: 14pt;
 }

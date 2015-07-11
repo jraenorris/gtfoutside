@@ -4,6 +4,8 @@ class ParksController < ApplicationController
     @city = location["loc"]["city"]
     @region = location["loc"]["region_name"]
     response = HTTParty.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{location['loc']['lat']},#{location['loc']['lng']}&radius=10000&types=park&campground=cruise&key=#{ENV["GOOGLE_KEY"]}")
+    @env_key = ENV['GOOGLE_KEY']
+    # {'results' => [{'name' => "Copley Park", 'place_id' => 1234567890, 'rating' => 4.3}, {'name' => "Copley Park", 'place_id' => 1234567890, 'rating' => 4.3}, {'name' => "Copley Park", 'place_id' => 1234567890, 'rating' => 4.3}]}
 
     @places = response["results"]
     #
